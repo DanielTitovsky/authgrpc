@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package authgrpc;
+
+option go_package = "github.com/yourorg/authgrpc;authgrpc";
+
+service AuthGRPC {
+    rpc ValidateToken(TokenString)  returns (ValidateTokenResponse) {}
+};
+
+message TokenString {
+    string token = 1;
+}
+
+message ValidateTokenResponse {
+    string userId = 1;
+    bool isValid = 2;
+}
